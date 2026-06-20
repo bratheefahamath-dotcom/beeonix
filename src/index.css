@@ -1,0 +1,137 @@
+/* Import Google Fonts (Inter & Plus Jakarta Sans) before Tailwind imports */
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap");
+@import "tailwindcss";
+
+@theme {
+  --color-brand-gold: #E1B045;
+  --color-brand-purple: #4c00b0;
+  --color-brand-blue: #0D47A1;
+
+  --font-heading: "Plus Jakarta Sans", sans-serif;
+  --font-body: "Inter", sans-serif;
+}
+
+/* Global Background with Glowing Spots */
+body {
+  background-color: #05010a;
+  background-image:
+    radial-gradient(at 5% 15%, rgba(76, 0, 176, 0.35) 0px, transparent 40%),
+    radial-gradient(at 95% 10%, rgba(225, 176, 69, 0.15) 0px, transparent 35%),
+    radial-gradient(at 50% 95%, rgba(13, 71, 161, 0.3) 0px, transparent 45%),
+    radial-gradient(at 85% 85%, rgba(190, 46, 214, 0.15) 0px, transparent 40%);
+  background-attachment: fixed;
+  color: #ffffff;
+  font-family: var(--font-body);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-heading);
+}
+
+/* Glass Mirror Reflection Effect for Images */
+.image-reflect {
+  -webkit-box-reflect: below 6px linear-gradient(to bottom, transparent 40%, rgba(255, 255, 255, 0.12) 100%);
+}
+
+/* Subtle Glass Mirror Reflection Effect for Testimonial Cards */
+.card-reflect {
+  -webkit-box-reflect: below 8px linear-gradient(to bottom, transparent 65%, rgba(255, 255, 255, 0.08) 100%);
+}
+
+/* Infinite Marquee Animation Keyframes */
+@keyframes marquee {
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-marquee {
+  animation: marquee 25s linear infinite;
+}
+
+.animate-marquee:hover {
+  animation-play-state: paused;
+}
+
+/* Hide scrollbar for Chrome, Safari, and Opera inside containers */
+.scrollbar-none::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for IE, Edge, and Firefox inside containers */
+.scrollbar-none {
+  -ms-overflow-style: none;
+  /* IE/Edge */
+  scrollbar-width: none;
+  /* Firefox */
+}
+
+/* Global Custom Scrollbar for the Entire Website (Desktop) */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #05010a;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #4c00b0;
+  border-radius: 9999px;
+  border: 2px solid #05010a;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #E1B045;
+}
+
+/* Firefox Fallback for Custom Scrollbar */
+html {
+  scrollbar-width: thin;
+  scrollbar-color: #4c00b0 #05010a;
+}
+
+/* Bi-directional Testimonial Marquees Keyframes */
+@keyframes marquee-left {
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes marquee-right {
+  0% {
+    transform: translateX(-50%);
+  }
+
+  100% {
+    transform: translateX(0);
+  }
+}
+
+/* Testimonial Marquee Classes with Hover Pause */
+.animate-marquee-left {
+  animation: marquee-left 40s linear infinite;
+}
+
+.animate-marquee-right {
+  animation: marquee-right 40s linear infinite;
+}
+
+.animate-marquee-left:hover,
+.animate-marquee-right:hover {
+  animation-play-state: paused;
+  /* Pauses smoothly so users can read the text comfortable */
+}
